@@ -11,8 +11,32 @@ dependencies {
   compile spec.product.pegasus.restliServer
   compile spec.product.pegasus.restliCommon
   compile spec.product.pegasus.pegasusCommon
+  compile externalDependency.jredis
   restTools spec.product.pegasus.restliTools
+  compile externalDependency.log4j
+  testCompile externalDependency.testng
+  testCompile externalDependency.easymock
+  
 
   // need to figure out why this is not already in the classpath..
  compile files("${System.properties['java.home']}/../lib/tools.jar")
 }
+
+
+test {
+  
+ maxHeapSize = '1g'
+ 
+  useTestNG()
+
+ task ServerTests(type: Test) {
+    useTestNG() {
+      include 'server'
+      
+    }
+  }
+
+
+ 
+}
+

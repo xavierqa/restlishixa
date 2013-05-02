@@ -8,6 +8,7 @@ import com.shixa.formats.User;
 public interface DataBaseConnector {
 
 	 public Long getCurrentId();
+	 
 	 public Map<Long, User> getData();
 
 }

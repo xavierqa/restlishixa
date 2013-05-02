@@ -11,9 +11,15 @@ public class DataBaseConnectorImpl implements DataBaseConnector {
 	private final AtomicLong _currId = new AtomicLong();
 	private final Map<Long, User> _data = new ConcurrentHashMap<Long, User>();
 
+	
+	public DataBaseConnectorImpl(){
+		
+	}
+	
 	@Override
 	public Long getCurrentId() {
 		// TODO Auto-generated method stub
+		
 		return _currId.incrementAndGet();
 	}
 
