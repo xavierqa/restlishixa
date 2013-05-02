@@ -11,7 +11,7 @@ dependencies {
   compile spec.product.pegasus.restliServer
   compile spec.product.pegasus.restliCommon
   compile spec.product.pegasus.pegasusCommon
-  compile externalDependency.jredis
+  compile externalDependency.jedis
   restTools spec.product.pegasus.restliTools
   compile externalDependency.log4j
   testCompile externalDependency.testng
