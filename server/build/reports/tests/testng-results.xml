@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Gradle suite" duration-ms="143" started-at="2013-05-02T16:13:37Z" finished-at="2013-05-02T16:13:37Z">
+    <groups>
+    </groups>
+    <test name="Gradle test" duration-ms="143" started-at="2013-05-02T16:13:37Z" finished-at="2013-05-02T16:13:37Z">
+      <class name="com.shixa.impl.ServerTest">
+        <test-method status="PASS" signature="Initresource()[pri:0, instance:com.shixa.impl.ServerTest@5578920a]" name="Initresource" is-config="true" duration-ms="123" started-at="2013-05-02T16:13:37Z" finished-at="2013-05-02T16:13:37Z">
+        </test-method> <!-- Initresource -->
+        <test-method status="PASS" signature="TestCreateUser()[pri:0, instance:com.shixa.impl.ServerTest@5578920a]" name="TestCreateUser" duration-ms="9" started-at="2013-05-02T16:13:37Z" finished-at="2013-05-02T16:13:37Z">
+        </test-method> <!-- TestCreateUser -->
+      </class> <!-- com.shixa.impl.ServerTest -->
+    </test> <!-- Gradle test -->
+  </suite> <!-- Gradle suite -->
+</testng-results>

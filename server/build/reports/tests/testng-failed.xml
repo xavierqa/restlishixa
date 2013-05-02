@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="1" verbose="0" name="Failed suite [Gradle suite]">
+  <test name="Gradle test(failed)" preserve-order="true">
+    <classes>
+      <class name="com.shixa.impl.ServerTest">
+        <methods>
+          <include name="TestCreateUser"/>
+          <include name="Initresource"/>
+        </methods>
+      </class> <!-- com.shixa.impl.ServerTest -->
+    </classes>
+  </test> <!-- Gradle test(failed) -->
+</suite> <!-- Failed suite [Gradle suite] -->

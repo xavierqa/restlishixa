@@ -1,0 +1,20 @@
+{
+  "name" : "users",
+  "namespace" : "com.shixa.formats",
+  "path" : "/users",
+  "schema" : "com.shixa.formats.User",
+  "doc" : "generated from: com.shixa.impl.UserResources",
+  "collection" : {
+    "identifier" : {
+      "name" : "usersId",
+      "type" : "long"
+    },
+    "supports" : [ "create" ],
+    "methods" : [ {
+      "method" : "create"
+    } ],
+    "entity" : {
+      "path" : "/users/{usersId}"
+    }
+  }
+}

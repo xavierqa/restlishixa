@@ -13,9 +13,22 @@ spec = [
       "restliCommon" : "com.linkedin.pegasus:restli-common:"+pegasusVersion,
       "r2" : "com.linkedin.pegasus:r2:"+pegasusVersion,
       "r2Jetty" : "com.linkedin.pegasus:r2-jetty:"+pegasusVersion
+      
     ]
   ]
 ]
+
+project.ext.externalDependency = [
+ 'testng': 'org.testng:testng:6.4',
+ 'easymock': 'org.easymock:easymock:3.1',
+ 'log4j': 'log4j:log4j:1.2.15',
+ 'jredis': 'redis.clients:jedis:2.1.0'
+            
+  	
+]
+
+ 
+
 
 buildscript {
   repositories {
