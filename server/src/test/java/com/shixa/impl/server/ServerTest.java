@@ -1,4 +1,4 @@
-package com.shixa.impl;
+package com.shixa.impl.server;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -14,6 +14,9 @@ import com.linkedin.restli.server.CreateResponse;
 import com.linkedin.restli.server.mock.SimpleBeanProvider;
 import com.linkedin.restli.server.resources.InjectResourceFactory;
 import com.shixa.formats.User;
+import com.shixa.impl.UserResources;
+import com.shixa.impl.db.DataBaseConnector;
+import com.shixa.impl.db.DataBaseConnectorImpl;
 
 
 

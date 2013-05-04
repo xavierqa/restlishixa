@@ -1,0 +1,11 @@
+server/src/main/java/com/shixa/impl/db/DataBaseConnector.java
+server/src/main/java/com/shixa/impl/util/JsonGenerator.java
+server/src/main/java/com/shixa/impl/util/JsonGeneratorImpl.java
+server/src/main/java/com/shixa/impl/util/ShixaErrors.java
+server/src/main/java/com/shixa/impl/util/UserAbstract.java
+server/src/main/java/com/shixa/impl/util/UUIDGenerator.java
+server/src/main/java/com/shixa/impl/util/UUIDGeneratorImpl.java
+server/src/test/java/com/shixa/impl/db/JedisTest.java
+server/src/test/java/com/shixa/impl/json/JsonGeneratorTest.java
+server/src/test/java/com/shixa/impl/server/ServerTest.java
+server/src/test/java/com/shixa/impl/uuid/UUIDTest.java

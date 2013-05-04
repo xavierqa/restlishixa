@@ -12,6 +12,7 @@ dependencies {
   compile spec.product.pegasus.restliCommon
   compile spec.product.pegasus.pegasusCommon
   compile externalDependency.jedis
+  
   restTools spec.product.pegasus.restliTools
   compile externalDependency.log4j
   testCompile externalDependency.testng
@@ -25,16 +26,20 @@ dependencies {
 
 test {
   
+   exclude('**/ServerTest.class')
+   exclude('**/JsonGeneratorTest.class')
+   include('**/UUIDTest.class')
  maxHeapSize = '1g'
  
   useTestNG()
 
- task ServerTests(type: Test) {
-    useTestNG() {
-      include 'server'
-      
-    }
+  
+task JsonTests(type: Test) {
+   include 'server'   
+    
+   
   }
+  
 
 
  

@@ -13,6 +13,8 @@ import com.linkedin.restli.server.UpdateResponse;
 import com.linkedin.restli.server.resources.CollectionResourceTemplate;
 import com.linkedin.restli.server.annotations.RestLiCollection;
 import com.shixa.formats.User;
+import com.shixa.impl.db.DataBaseConnector;
+import com.shixa.impl.db.DataBaseConnectorImpl;
 
 
 @RestLiCollection(name = "users", namespace = "com.shixa.formats")
@@ -37,14 +39,8 @@ public class UserResources extends CollectionResourceTemplate<Long, User>{
 	@Override
 	public CreateResponse create(User entity) {
 		
-		if ( _db == null){
-			System.out.println("HEre is null" );
-		}else{
-			System.out.println(_db.getCurrentId());
-		}
-		final Long id = _db.getCurrentId();
 		
-		System.out.println(id);
+		//System.out.println(id);
 		System.out.println(entity.toString());		
 		return new CreateResponse(1l);
 	}
