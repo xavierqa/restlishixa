@@ -14,7 +14,7 @@ public class JsonGeneratorTest {
 	private static Logger LOG = Logger.getLogger(JsonGeneratorTest.class);
 
 	 private User createUser(){
-		 long id = 12;
+		 String id = "12";
 		 
 		 User user = new User();
 		 user.setEmail("xavier@gmail.com");

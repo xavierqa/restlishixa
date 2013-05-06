@@ -14,7 +14,7 @@ public class UUIDTest {
 	private static Logger LOG = Logger.getLogger(UUIDTest.class);
 	
 	 private User createUser(){
-		 long id = 12;
+		 String id = "12";
 		 
 		 User user = new User();
 		 user.setEmail("xavier@co.com");
@@ -30,7 +30,7 @@ public class UUIDTest {
 		 LOG.info("Test");
 		 UUIDGenerator uuid = new UUIDGeneratorImpl();
 		 User user = createUser();
-		 Long id = uuid.createUUID(user);
+		 String id = uuid.createUUID(user);
 		 LOG.info("ID:"+ id);
 		 Assert.assertNotNull(id);
 	 }

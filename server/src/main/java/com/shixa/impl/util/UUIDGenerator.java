@@ -5,9 +5,9 @@ import com.shixa.formats.User;
 
 public interface UUIDGenerator {
 
-	public Long createUUID(User user);
+	public String createUUID(User user);
 	
-	public Long getUUID(String username, String password);
+	public String getUUID(String username, String password);
 	
 	
 }

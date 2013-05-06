@@ -1,0 +1,21 @@
+{
+	"type":"record",
+	"name":"Profile",
+	"namespace":"com.shixa.formats",
+	"doc":"create a profile for a user",
+	"fields":[
+			{
+			"name":"photo_profile",
+			"type":"string",
+			"optional":true
+			},
+			{
+			"name":"gender",
+			"type": "string",		
+			"optional":true
+			}
+			
+	
+	]
+
+}

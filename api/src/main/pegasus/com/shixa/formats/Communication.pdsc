@@ -1,0 +1,33 @@
+{
+	"type":"record",
+	"name":"Communication",
+	"namespace":"com.shixa.formats",
+	"doc":"create a profile for a user",
+	"fields":[
+		{
+		"name":"use_email",
+		"type":"boolean",
+		"optional":true
+		},
+		{
+		"name":"use_twitter",
+		"type": ["boolean","string"],
+		"optional":true
+		},
+		{
+		"name":"contactme",
+		"type":"boolean"
+		},
+		{
+		"name":"voice",
+		"type":"boolean",
+		"optional":true
+		},
+		{
+		"name":"sms",
+		"type":"boolean",
+		"optional":true
+		}
+		
+	]
+}

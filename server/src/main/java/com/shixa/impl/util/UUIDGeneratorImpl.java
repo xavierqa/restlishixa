@@ -23,7 +23,7 @@ public class UUIDGeneratorImpl implements UUIDGenerator{
 	 */
 	
 	@Override
-	public Long createUUID(User user) {
+	public String createUUID(User user) {
 		// TODO Auto-generated method stub
 		if (!user.hasEmail())
 			return ShixaErrors.errors.EMAIL_ERROR.getError();
@@ -35,11 +35,11 @@ public class UUIDGeneratorImpl implements UUIDGenerator{
 	}
 
 	@Override
-	public Long getUUID(String username, String password) {
+	public String getUUID(String username, String password) {
 		return generateUUID(username, password);
 	}
 
-	private Long generateUUID(String username, String password){
+	private String generateUUID(String username, String password){
 		if ( username == null || username.isEmpty())
 			return ShixaErrors.errors.USERNAME_ERROR.getError();
 		if ( password == null){
@@ -49,9 +49,9 @@ public class UUIDGeneratorImpl implements UUIDGenerator{
 		String _userstring= username+ password+ _salt;
 		
 		UUID uuid = UUID.nameUUIDFromBytes(_userstring.getBytes());
-		//LOG.info(uuid.toString());
+		LOG.info(uuid.toString());
 		//LOG.info(uuid.getMostSignificantBits());
-		return uuid.getMostSignificantBits();
+		return uuid.toString();
 
 	}
 	

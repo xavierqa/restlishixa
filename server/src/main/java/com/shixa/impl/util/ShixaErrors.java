@@ -3,21 +3,23 @@ package com.shixa.impl.util;
 public class ShixaErrors {
 
 	public static enum errors { 
-		USERNAME_ERROR(-1),
-		PASSWORD_ERROR(-2),
-		EMAIL_ERROR(-3),
-		ID_NULL(-4),
-		USER_EXIST(-5),
-		USER_NULL(-6),
-		USER_DOESNOT_EXIST(-7);
+		USERNAME_ERROR("Username_error"),
+		PASSWORD_ERROR("Password_error"),
+		EMAIL_ERROR("Email_error"),
+		ID_NULL("ID-Null"),
+		USER_EXIST("User exist"),
+		USER_NULL("User is null"),
+		USER_DOESNOT_EXIST("User does not exist"),
+		USER_HAS_BEEN_DELETE("User has been delete"),
+		USER_HAS_NOT_BEEN_DELETE("User has not been delete");
 	
-		private long id;
+		private String message;
 		
-		private errors(long val) {
-			this.id = val;
+		private errors(String val) {
+			this.message = val;
 		}
-		public long getError(){
-			return id;
+		public String getError(){
+			return message;
 		}
 	}  
 }

@@ -11,15 +11,15 @@ public interface DataBaseConnector {
 	 
 	// public Map<Long, User> getData();
 
-	 public Long createUser(User user); 
+	 public String createUser(User user); 
 	 
-	 public Long editUser(Long Id, User user);
+	 public String editUser(String Id, User user);
 	 
-	 public Long removeUser(Long Id);
+	 public String removeUser(String Id);
 	 
-	 public User getUser(Long Id);
+	 public User getUser(String Id);
 	 
-	 public Boolean existUser(Long Id);
+	 public Boolean existUser(String Id);
 	 
 	 public Boolean existUser(String username, String password);
 }

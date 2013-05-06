@@ -4,6 +4,10 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicLong;
 
+import org.apache.log4j.Logger;
+
+
+
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
@@ -14,10 +18,12 @@ import com.shixa.impl.util.JsonGeneratorImpl;
 import com.shixa.impl.util.ShixaErrors;
 import com.shixa.impl.util.UUIDGenerator;
 import com.shixa.impl.util.UUIDGeneratorImpl;
-import com.shixa.impl.util.UserErrors;
+
 
 public class DataBaseConnectorImpl implements DataBaseConnector {
 
+	private static Logger LOG = Logger.getLogger(DataBaseConnectorImpl.class);
+	
 	private final AtomicLong _currId = new AtomicLong();
 	private final Map<Long, User> _data = new ConcurrentHashMap<Long, User>();
 
@@ -32,6 +38,8 @@ public class DataBaseConnectorImpl implements DataBaseConnector {
 	private JsonGenerator _json;
 	
 	UUIDGenerator _uuid; 
+	
+	private String _user_redis="shixa:user:";
 	
 	public DataBaseConnectorImpl(){
 		_uuid = new UUIDGeneratorImpl();
@@ -61,25 +69,29 @@ public class DataBaseConnectorImpl implements DataBaseConnector {
 	 * @see com.shixa.impl.db.DataBaseConnector#createUser(com.shixa.formats.User)
 	 */
 	
+	private String getUserId(String id){
+		return _user_redis.concat(id);
+	}
+	
 	@Override
-	public Long createUser(User user) {
+	public String createUser(User user) {
 		// TODO Auto-generated method stub
-		Long id = _uuid.createUUID(user);
-		if ( id < 0 )
-			return id;
-		
+		String id = _uuid.createUUID(user);
+		LOG.info("ID:"+id);
 		if ( existUser(id)){
 			return ShixaErrors.errors.USER_EXIST.getError(); 
 		}
 		user.setId(id);
+		LOG.info(user.toString());
 		String json = _json.serializeJson(user);
-		_jedis.set(String.valueOf(id), json);
+		LOG.info(json);
+		_jedis.set(getUserId(id), json);
 		
 		return id;
 	}
 
 	@Override
-	public Long editUser(Long Id, User user) {
+	public String editUser(String Id, User user) {
 	
 		
 		if ( Id == null)
@@ -91,35 +103,42 @@ public class DataBaseConnectorImpl implements DataBaseConnector {
 			return ShixaErrors.errors.USER_DOESNOT_EXIST.getError();
 		}
 		
-		_jedis.set(Id, user);
+		String json = _json.serializeJson(user);
+		_jedis.set(getUserId(Id), json);
 		
 		return Id;
 	}
 
 	@Override
-	public Long removeUser(Long Id) {
+	public String removeUser(String Id) {
 		// TODO Auto-generated method stub
-		long val = _jedis.del(String.valueOf(Id));
-		return val;
+		long val = _jedis.del(getUserId(Id));
+		String response; 
+		if ( val < 0 ){
+			response = ShixaErrors.errors.USER_HAS_NOT_BEEN_DELETE.getError();
+		}else{
+			response = ShixaErrors.errors.USER_HAS_BEEN_DELETE.getError();
+		}
+		return response;
 	}
 
 	@Override
-	public User getUser(Long Id) {
-		String json = _jedis.get(String.valueOf(Id));
+	public User getUser(String Id) {
+		String json = _jedis.get(getUserId(Id));
 		User user = _json.deserializeJson(json);
 		return user;
 	}
 
 	@Override
-	public Boolean existUser(Long Id) {
+	public Boolean existUser(String Id) {
 		// TODO Auto-generated method stub
-		return _jedis.exists(String.valueOf(Id));
+		return _jedis.exists(getUserId(Id));
 	}
 
 	@Override
 	public Boolean existUser(String username, String password) {
 		// TODO Auto-generated method stub
-		long id = _uuid.getUUID(username, password);
+		String id = _uuid.getUUID(username, password);
 		return existUser(id);
 	}
 
