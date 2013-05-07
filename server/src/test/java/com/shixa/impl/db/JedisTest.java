@@ -59,6 +59,48 @@ public class JedisTest {
 		DataBaseConnector db = new DataBaseConnectorImpl();
 		String id = "5f374b9a-3157-33cf-b49f-155ec6be5b37";
 		User _user = db.getUser(id);
+		LOG.info(_user.toString());
 		Assert.assertNotNull(_user);
+		User user = createUser();
+		Assert.assertEquals(_user.getEmail(), user.getEmail());
+	}
+	
+	@Test
+	public void editTest(){
+		DataBaseConnector db = new DataBaseConnectorImpl();
+		String id = "5f374b9a-3157-33cf-b49f-155ec6be5b37";
+		User _user = db.getUser(id);
+		_user.setCity("Cuenca");
+		String _id = db.editUser(id, _user);
+		LOG.info(_id);
+		Assert.assertEquals(_id, id);
+	}
+	
+	@Test
+	public void existTest1(){
+		DataBaseConnector db = new DataBaseConnectorImpl();
+		String id = "5f374b9a-3157-33cf-b49f-155ec6be5b37";
+		boolean exist = db.existUser(id);
+		LOG.info(exist);
+		Assert.assertNotNull(exist);
+	}
+	
+	@Test
+	public void removeTest(){
+		DataBaseConnector db = new DataBaseConnectorImpl();
+		String id = "5f374b9a-3157-33cf-b49f-155ec6be5b37";
+		String _delete = db.removeUser(id);
+		LOG.info(_delete);
+		Assert.assertNotNull(_delete);
+	}
+	
+
+	@Test
+	public void existTest(){
+		DataBaseConnector db = new DataBaseConnectorImpl();
+		String id = "5f374b9a-3157-33cf-b49f-155ec6be5b37";
+		boolean exist = db.existUser(id);
+		LOG.info(exist);
+		Assert.assertNotNull(exist);
 	}
 }
