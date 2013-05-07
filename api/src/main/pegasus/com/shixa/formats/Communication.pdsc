@@ -11,7 +11,7 @@
 		},
 		{
 		"name":"use_twitter",
-		"type": ["boolean","string"],
+		"type": "boolean",
 		"optional":true
 		},
 		{

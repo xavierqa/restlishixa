@@ -13,9 +13,15 @@
 			"name":"gender",
 			"type": "string",		
 			"optional":true
+			},
+			{
+			"name":"twitter",
+			"type":"string",
+			"optional":true
 			}
 			
-	
+			
+			
 	]
 
 }
