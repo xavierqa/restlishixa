@@ -11,21 +11,21 @@ import org.testng.annotations.Test;
 import com.linkedin.restli.internal.server.model.ResourceModel;
 import com.linkedin.restli.internal.server.model.RestLiAnnotationReader;
 import com.linkedin.restli.server.CreateResponse;
-import com.linkedin.restli.server.UpdateResponse;
 import com.linkedin.restli.server.mock.SimpleBeanProvider;
 import com.linkedin.restli.server.resources.InjectResourceFactory;
+import com.shixa.formats.ShixaAuth;
 import com.shixa.formats.User;
-import com.shixa.impl.UserResources;
+import com.shixa.impl.AuthenticationResources;
+
 import com.shixa.impl.db.DataBaseConnector;
 import com.shixa.impl.db.DataBaseConnectorImpl;
 
+public class AuthenticationTest {
 
-
-public class ServerTest {
-
-	private Logger LOG = Logger.getLogger(ServerTest.class);
 	
-	private UserResources _userResource;
+	private Logger LOG = Logger.getLogger(AuthenticationTest.class);
+	
+	private AuthenticationResources _authenticationResource;
 	
 	 private static Map<String, ResourceModel> buildResourceModels(Class<?>... rootResourceClasses)
 	  {
@@ -38,7 +38,6 @@ public class ServerTest {
 
 	    return map;
 	  }
-
 	 
 	 private User createUser(){
 		 //long id = 12;
@@ -68,21 +67,7 @@ public class ServerTest {
 		// user.setId(id);
 		 return user;
 	 }
-	 /*
-	 private Long createUser(){
-		 Long id = 0l;
-		 
-		 User user = new User();
-		 user.setEmail("xavier@gmail.com");
-		 user.setPassword("1234567");
-		 user.setUsername("xavierqa");
-		 
-		 CreateResponse cResp = _userResource.create(user);
-		 Assert.assertTrue(cResp.hasId());
-		 return (Long) cResp.getId();
-
-	 }
-*/
+	 
 	 @BeforeMethod
 	 public void Initresource(){
 		 LOG.info("THis is a test");
@@ -90,64 +75,27 @@ public class ServerTest {
 		 final DataBaseConnector _db = new DataBaseConnectorImpl();
 		 beanProvider.add("userDB", _db);
 		 final InjectResourceFactory factory = new InjectResourceFactory(beanProvider);
-		 final Map<String, ResourceModel> pathRootResourceMap = buildResourceModels(UserResources.class);
+		 final Map<String, ResourceModel> pathRootResourceMap = buildResourceModels(AuthenticationResources.class);
 		 factory.setRootResources(pathRootResourceMap);
-		 _userResource = factory.create(UserResources.class);
-		  Assert.assertNotNull(_userResource);
-		 Assert.assertNotNull(_userResource.getDataBase());
+		 _authenticationResource = factory.create(AuthenticationResources.class);
+		  Assert.assertNotNull(_authenticationResource);
 		 
 		 
 	 }
 	 
 	 
 	 @Test
-	 public void createUserTest(){
-		 
+	 public void authenticateTest(){
 		 
 		 User user = createUser();
-		 CreateResponse cResp = _userResource.create(user);
+		 String username = user.getEmail();
+		 String password = user.getPassword();
+		 ShixaAuth auth = new ShixaAuth();
+		 auth.setPassword(password);
+		 auth.setUsername(username);
+		 CreateResponse cResp = _authenticationResource.create(auth);
 		 LOG.info(cResp.getId());
-		 Assert.assertTrue(cResp.hasId());
-		 cResp = _userResource.create(user);
-		 LOG.info(cResp.getId());
-		 Assert.assertTrue(cResp.hasId());
-
+		 Assert.assertNotNull(cResp);
 		 
 	 }
-
-	 
-
-	/* @Test
-	 public void getUserTest(){
-		 String id = "5f374b9a-3157-33cf-b49f-155ec6be5b37";
-		 User user = _userResource.get(id);
-		 User _user = createUser();
-		 _user.setId(id);
-		 LOG.info(user);
-		 Assert.assertEquals(user, _user);
-	 }
-
-	 
-	 @Test
-	 public void updateUserTest(){
-		 String id = "5f374b9a-3157-33cf-b49f-155ec6be5b37";
-		 User _user = createUser();
-		 _user.setId(id);
-		 _user.setCity("Cuenca");
-		 UpdateResponse response = _userResource.update(id, _user);
-		 LOG.info(response.getStatus().getCode());
-		 Assert.assertNotNull(response);
-		 
-		
-	 }
-	 
-	 @Test
-	 public void deleteUserTest(){
-		 String id = "5f374b9a-3157-33cf-b49f-155ec6be5b37";
-		 UpdateResponse response = _userResource.delete(id);
-		 LOG.info(response.getStatus().getCode());
-		 Assert.assertNotNull(response);
-		 
-		
-	 }*/
 }

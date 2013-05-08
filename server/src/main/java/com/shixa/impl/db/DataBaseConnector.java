@@ -19,6 +19,8 @@ public interface DataBaseConnector {
 	 
 	 public User getUser(String Id);
 	 
+	 public User getUser(String username, String password);
+	 
 	 public Boolean existUser(String Id);
 	 
 	 public Boolean existUser(String username, String password);

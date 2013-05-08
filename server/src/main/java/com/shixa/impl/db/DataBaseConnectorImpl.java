@@ -142,4 +142,18 @@ public class DataBaseConnectorImpl implements DataBaseConnector {
 		return existUser(id);
 	}
 
+	@Override
+	public User getUser(String username, String password) {
+		// TODO Auto-generated method stub
+		User user =null;
+		if(existUser(username, password) ){
+			String id = _uuid.getUUID(username, password);
+			user = getUser(id);
+			LOG.info("User:"+user.toString());
+		}else{
+			LOG.info("User does not exist");
+		}
+		return user;
+	}
+
 }

@@ -11,7 +11,8 @@ public class ShixaErrors {
 		USER_NULL("User is null"),
 		USER_DOESNOT_EXIST("User does not exist"),
 		USER_HAS_BEEN_DELETE("User has been delete"),
-		USER_HAS_NOT_BEEN_DELETE("User has not been delete");
+		USER_HAS_NOT_BEEN_DELETE("User has not been delete"),
+		USERNAME_PASSWORD_ERROR("Username/password error");
 	
 		private String message;
 		

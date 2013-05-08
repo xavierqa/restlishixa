@@ -19,7 +19,7 @@ import com.shixa.impl.util.ShixaErrors;
 
 
 
-@RestLiCollection(name = "users", namespace = "com.shixa.formats")
+@RestLiCollection(name = "user", namespace = "com.shixa.formats")
 public class UserResources extends CollectionResourceTemplate<String, User>{
 
 	private static Logger LOG = Logger.getLogger(UserResources.class);
