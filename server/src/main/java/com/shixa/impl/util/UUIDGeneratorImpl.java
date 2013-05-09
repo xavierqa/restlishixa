@@ -4,7 +4,9 @@ import java.util.UUID;
 
 import org.apache.log4j.Logger;
 
-import com.shixa.formats.User;
+import com.shixa.formats.user.User;
+
+
 
 
 public class UUIDGeneratorImpl implements UUIDGenerator{

@@ -8,7 +8,9 @@ import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 
-import com.shixa.formats.User;
+import com.shixa.formats.user.User;
+
+
 
 public class JsonGeneratorImpl implements JsonGenerator{
 

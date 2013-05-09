@@ -2,16 +2,19 @@ package com.shixa.impl.db;
 
 import org.apache.log4j.Logger;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 
-import com.shixa.formats.User;
+
+import com.shixa.formats.user.User;
+import com.shixa.impl.util.UserTest;
 
 public class JedisTest {
 
 	private static Logger LOG = Logger.getLogger(JedisTest.class);
 	
-	private User createUser(){
+	/*private User createUser(){
 		 //long id = 12;
 		 
 		 User user = new User();
@@ -38,13 +41,20 @@ public class JedisTest {
 		 
 		// user.setId(id);
 		 return user;
-	 }
+	 }*/
+	
+	private UserTest _user; 
+	
+	@BeforeMethod
+	 public void Initresource(){
+		_user = new UserTest();
+	}
 	
 	@Test
 	public void createTest(){
 //		String id = "d5f1c2c1-7b60-3e04-9df6-25696bcd8a7f";
 		DataBaseConnector db = new DataBaseConnectorImpl();
-		User user = createUser();
+		User user = _user.createUser();
 		String id = db.createUser(user);
 		LOG.info("ID:"+id);
 		Assert.assertNotNull(id);
@@ -58,11 +68,11 @@ public class JedisTest {
 	public void getTest(){
 		DataBaseConnector db = new DataBaseConnectorImpl();
 		String id = "5f374b9a-3157-33cf-b49f-155ec6be5b37";
-		User _user = db.getUser(id);
-		LOG.info(_user.toString());
+		User userfromdb = db.getUser(id);
+		LOG.info(userfromdb.toString());
 		Assert.assertNotNull(_user);
-		User user = createUser();
-		Assert.assertEquals(_user.getEmail(), user.getEmail());
+		User userfromtest = _user.createUser();
+		Assert.assertEquals(userfromdb.getEmail(), userfromtest.getEmail());
 	}
 	
 	@Test

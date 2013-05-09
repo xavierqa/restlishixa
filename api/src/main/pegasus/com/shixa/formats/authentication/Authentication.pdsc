@@ -1,0 +1,24 @@
+{
+  "type": "record",
+  "name": "TwitterAuth",
+  "namespace": "com.shixa.formats.authentication",
+  "doc": "Create an authentication class to support Twitter, FB and local for shixa",
+  "fields": [
+      		{
+      			"name": "OAuthToken",
+      			"type": "string"
+      			
+    		},
+    		{
+      			"name": "username",
+      			"type": "string"
+    		},
+    		{
+      			"name": "photo",
+      			"type": "string"
+    		}
+    		]
+    
+  
+}
+

@@ -13,8 +13,10 @@ import com.linkedin.restli.internal.server.model.RestLiAnnotationReader;
 import com.linkedin.restli.server.CreateResponse;
 import com.linkedin.restli.server.mock.SimpleBeanProvider;
 import com.linkedin.restli.server.resources.InjectResourceFactory;
-import com.shixa.formats.ShixaAuth;
-import com.shixa.formats.User;
+
+import com.shixa.formats.authentication.ShixaAuth;
+import com.shixa.formats.user.User;
+
 import com.shixa.impl.AuthenticationResources;
 
 import com.shixa.impl.db.DataBaseConnector;

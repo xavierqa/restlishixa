@@ -3,7 +3,7 @@ package com.shixa.impl.db;
 
 import java.util.Map;
 
-import com.shixa.formats.User;
+import com.shixa.formats.user.User;
 
 public interface DataBaseConnector {
 

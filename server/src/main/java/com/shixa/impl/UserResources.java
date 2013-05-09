@@ -12,7 +12,7 @@ import com.linkedin.restli.server.RestLiServiceException;
 import com.linkedin.restli.server.UpdateResponse;
 import com.linkedin.restli.server.resources.CollectionResourceTemplate;
 import com.linkedin.restli.server.annotations.RestLiCollection;
-import com.shixa.formats.User;
+import com.shixa.formats.user.User;
 import com.shixa.impl.db.DataBaseConnector;
 import com.shixa.impl.db.DataBaseConnectorImpl;
 import com.shixa.impl.util.ShixaErrors;

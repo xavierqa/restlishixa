@@ -4,7 +4,7 @@ import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.annotate.JsonProperty;
 
 import com.linkedin.data.template.SetMode;
-import com.shixa.formats.User;
+import com.shixa.formats.user.User;
 
 public abstract class UserAbstract {
 	public UserAbstract() {

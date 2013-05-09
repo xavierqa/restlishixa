@@ -1,0 +1,19 @@
+{
+  "type": "record",
+  "name": "ShixaAuth",
+  "namespace": "com.shixa.formats.authentication",
+  "doc": "Create an authentication class to support Twitter, FB and local for shixa",
+  "fields": [
+      		
+    		{
+      			"name": "username",
+      			"type": "string"
+    		},
+    		{
+      			"name": "password",
+      			"type": "string"
+    		}
+    		]
+    
+  
+}

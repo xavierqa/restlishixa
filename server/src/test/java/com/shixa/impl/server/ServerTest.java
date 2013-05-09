@@ -14,7 +14,8 @@ import com.linkedin.restli.server.CreateResponse;
 import com.linkedin.restli.server.UpdateResponse;
 import com.linkedin.restli.server.mock.SimpleBeanProvider;
 import com.linkedin.restli.server.resources.InjectResourceFactory;
-import com.shixa.formats.User;
+
+import com.shixa.formats.user.User;
 import com.shixa.impl.UserResources;
 import com.shixa.impl.db.DataBaseConnector;
 import com.shixa.impl.db.DataBaseConnectorImpl;

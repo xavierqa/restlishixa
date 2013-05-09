@@ -1,0 +1,26 @@
+{
+  "name" : "user",
+  "namespace" : "com.shixa.formats",
+  "path" : "/user",
+  "schema" : "com.shixa.formats.user.User",
+  "doc" : "generated from: com.shixa.impl.UserResources",
+  "collection" : {
+    "identifier" : {
+      "name" : "userId",
+      "type" : "string"
+    },
+    "supports" : [ "create", "delete", "get", "update" ],
+    "methods" : [ {
+      "method" : "create"
+    }, {
+      "method" : "get"
+    }, {
+      "method" : "update"
+    }, {
+      "method" : "delete"
+    } ],
+    "entity" : {
+      "path" : "/user/{userId}"
+    }
+  }
+}

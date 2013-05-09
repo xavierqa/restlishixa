@@ -8,8 +8,11 @@ import org.apache.log4j.Logger;
 import com.linkedin.restli.server.CreateResponse;
 import com.linkedin.restli.server.annotations.RestLiCollection;
 import com.linkedin.restli.server.resources.CollectionResourceTemplate;
-import com.shixa.formats.ShixaAuth;
-import com.shixa.formats.User;
+
+
+
+import com.shixa.formats.authentication.ShixaAuth;
+import com.shixa.formats.user.User;
 import com.shixa.impl.db.DataBaseConnector;
 import com.shixa.impl.db.DataBaseConnectorImpl;
 import com.shixa.impl.util.ShixaErrors;

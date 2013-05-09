@@ -5,7 +5,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.linkedin.restli.server.CreateResponse;
-import com.shixa.formats.User;
+
+import com.shixa.formats.user.User;
 import com.shixa.impl.util.JsonGenerator;
 import com.shixa.impl.util.JsonGeneratorImpl;
 

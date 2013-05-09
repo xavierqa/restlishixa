@@ -12,7 +12,7 @@ import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
-import com.shixa.formats.User;
+import com.shixa.formats.user.User;
 import com.shixa.impl.util.JsonGenerator;
 import com.shixa.impl.util.JsonGeneratorImpl;
 import com.shixa.impl.util.ShixaErrors;

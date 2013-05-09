@@ -5,7 +5,8 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 
-import com.shixa.formats.User;
+
+import com.shixa.formats.user.User;
 import com.shixa.impl.util.UUIDGenerator;
 import com.shixa.impl.util.UUIDGeneratorImpl;
 

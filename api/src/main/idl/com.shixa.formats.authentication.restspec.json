@@ -1,0 +1,20 @@
+{
+  "name" : "authentication",
+  "namespace" : "com.shixa.formats",
+  "path" : "/authentication",
+  "schema" : "com.shixa.formats.authentication.ShixaAuth",
+  "doc" : "generated from: com.shixa.impl.AuthenticationResources",
+  "collection" : {
+    "identifier" : {
+      "name" : "authenticationId",
+      "type" : "string"
+    },
+    "supports" : [ "create" ],
+    "methods" : [ {
+      "method" : "create"
+    } ],
+    "entity" : {
+      "path" : "/authentication/{authenticationId}"
+    }
+  }
+}
