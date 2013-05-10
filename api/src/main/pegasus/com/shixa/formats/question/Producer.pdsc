@@ -10,7 +10,7 @@
       			
     		},
     		{
-      			"name": "id",
+      			"name": "user_id",
       			"type": "string"
     		},
     		{
