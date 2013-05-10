@@ -19,9 +19,20 @@
       			"type": { "type" : "array", "items" : "string" },
       			"default":[""]
     		},
-    		{	"name":"id",
+    		{	"name":"questionId",
     			"type":"string"
-    		}
+    		},
+    		{
+			"name":"longitud",
+			"type":"double",
+			"default":0.0
+			},
+			{
+			"name":"latitud",
+			"type":"double",
+			"default": 0.0
+			}
+    	
     		]
     
   

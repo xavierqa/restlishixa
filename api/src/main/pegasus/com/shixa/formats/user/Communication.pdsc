@@ -5,17 +5,17 @@
 	"doc":"create a profile for a user",
 	"fields":[
 		{
-		"name":"use_email",
+		"name":"useEmail",
 		"type":"boolean",
 		"default":true
 		},
 		{
-		"name":"use_twitter",
+		"name":"useTwitter",
 		"type": "boolean",
 		"default": false
 		},
 		{
-		"name":"contactme",
+		"name":"contactMe",
 		"type":"boolean",
 		"default": false 
 		},

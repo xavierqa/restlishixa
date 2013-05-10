@@ -1,0 +1,26 @@
+{
+  "type": "record",
+  "name": "Price",
+  "namespace": "com.shixa.formats.question",
+  "doc": "Privacy regarding a question",
+  "fields": [
+      		{
+      			"name": "free",
+      			"type": "boolean",
+      			"default": true
+      			
+    		},
+    		{
+      			"name": "now",
+      			"type": "boolean",
+      			"default": false
+    		},
+    		{
+      			"name": "payBid",
+      			"type":  "int",
+      			"default":0
+    		}
+    		
+    		]
+    
+}

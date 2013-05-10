@@ -5,7 +5,7 @@
 	"doc":"create a profile for a user",
 	"fields":[
 			{
-			"name":"photo_profile",
+			"name":"photoProfile",
 			"type":"string",
 			"default":""
 			},

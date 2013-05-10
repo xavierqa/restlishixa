@@ -5,19 +5,18 @@
   "doc": "Producer of a question",
   "fields": [
       		{
-      			"name": "name",
+      			"name": "username",
       			"type": "string"
       			
     		},
     		{
-      			"name": "user_id",
+      			"name": "userId",
       			"type": "string"
     		},
     		{
-      			"name": "rank",
+      			"name": "userRank",
       			"type": "int"
     		}
-    		
     		]
     
   
