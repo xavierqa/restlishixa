@@ -22,7 +22,7 @@ public class UserTest {
 		 user.setPassword("1ss34567");
 		 user.setUsername("xavier");
 		 user.setGender("Male");
-		 user.setPhoto_profile("");
+		 user.setPhotoProfile("");
 		 //geolocation
 		 user.setCountry("USA");
 		 user.setCity("SF");
@@ -30,10 +30,11 @@ public class UserTest {
 		 user.setLatitud(123.4);
 		 user.setLongitud(11.1);
 		 //communications
-		 user.setContactme(true);
-		 user.setUse_email(false);
+		 user.setContactMe(true);
+		 user.setUseEmail(false);
 		 user.setTwitter("@xavier");
-		 user.setUse_twitter(true);
+		 user.setUseTwitter(true);
+	
 	
 		 user.setVoice(false);
 		 user.setSms(false);

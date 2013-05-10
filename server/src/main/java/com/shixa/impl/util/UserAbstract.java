@@ -26,22 +26,22 @@ public abstract class UserAbstract {
 	abstract User setLongitud(double value);
 	
 	@JsonIgnore
-	abstract User setContactme(Boolean value, SetMode mode);
+	abstract User setContactMe(Boolean value, SetMode mode);
 	
 	@JsonIgnore
-	abstract User setContactme(boolean value);
+	abstract User setContactMe(boolean value);
 	
 	@JsonIgnore
-	abstract User setUse_email(Boolean value, SetMode mode);
+	abstract User setUseEmail(Boolean value, SetMode mode);
 	
 	@JsonIgnore
-	abstract User setUse_email(boolean value);
+	abstract User setUseEmail(boolean value);
 	
 	@JsonIgnore
-	abstract User setUse_twitter(Boolean value, SetMode mode);
+	abstract User setUseTwitter(Boolean value, SetMode mode);
 	
 	@JsonIgnore
-	abstract User setUse_twitter(boolean value);
+	abstract User setUseTwitter(boolean value);
 	
 	@JsonIgnore
 	abstract User setVoice(Boolean value, SetMode mode);

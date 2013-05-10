@@ -16,7 +16,7 @@
       			"default": false
     		},
     		{
-      			"name": "payBid",
+      			"name": "offerBid",
       			"type":  "int",
       			"default":0
     		}
