@@ -2,7 +2,7 @@
   "type": "record",
   "name": "Producer",
   "namespace": "com.shixa.formats.question",
-  "doc": "Create a question representation",
+  "doc": "Producer of a question",
   "fields": [
       		{
       			"name": "name",
