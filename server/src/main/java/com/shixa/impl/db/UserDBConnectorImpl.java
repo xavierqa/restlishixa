@@ -24,8 +24,8 @@ public class UserDBConnectorImpl implements UserDBConnector {
 
 	private static Logger LOG = Logger.getLogger(UserDBConnectorImpl.class);
 	
-	private final AtomicLong _currId = new AtomicLong();
-	private final Map<Long, User> _data = new ConcurrentHashMap<Long, User>();
+	//private final AtomicLong _currId = new AtomicLong();
+	//private final Map<Long, User> _data = new ConcurrentHashMap<Long, User>();
 
 	private String host = "localhost";
 	

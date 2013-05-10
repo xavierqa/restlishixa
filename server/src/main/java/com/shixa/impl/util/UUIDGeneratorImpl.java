@@ -4,6 +4,7 @@ import java.util.UUID;
 
 import org.apache.log4j.Logger;
 
+import com.shixa.formats.question.Question;
 import com.shixa.formats.user.User;
 
 
@@ -56,5 +57,28 @@ public class UUIDGeneratorImpl implements UUIDGenerator{
 		return uuid.toString();
 
 	}
+
+	/*
+	 * Room for improvement: 
+	 * - Check spelling of the title
+	 * 
+	 * (non-Javadoc)
+	 * @see com.shixa.impl.util.UUIDGenerator#createQuestionUUID(com.shixa.formats.question.Question)
+	 */
 	
+	@Override
+	public String createQuestionUUID(Question question) {
+		// TODO Auto-generated method stub
+		
+		String questionID = null;
+		
+		if ( !question.getTitle().equals("")){
+			questionID = UUID.nameUUIDFromBytes(question.getTitle().toLowerCase().getBytes()).toString();
+		}
+		
+		return questionID;
+	}
+
+	
+		
 }
