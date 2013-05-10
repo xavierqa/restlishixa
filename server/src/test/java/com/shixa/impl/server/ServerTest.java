@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 import com.linkedin.restli.internal.server.model.ResourceModel;
 import com.linkedin.restli.internal.server.model.RestLiAnnotationReader;
 import com.linkedin.restli.server.CreateResponse;
-import com.linkedin.restli.server.UpdateResponse;
+
 import com.linkedin.restli.server.mock.SimpleBeanProvider;
 import com.linkedin.restli.server.resources.InjectResourceFactory;
 
