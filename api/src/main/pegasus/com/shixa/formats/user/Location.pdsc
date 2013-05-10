@@ -7,27 +7,27 @@
 			{
 			"name":"country",
 			"type":"string",
-			"optional":true
+			"default":""
 			},
 			{
 			"name":"city",
 			"type": "string",		
-			"optional":true
+			"default":""
 			},
 			{
 			"name":"longitud",
 			"type":"double",
-			"optional":true
+			"default":0.0
 			},
 			{
 			"name":"latitud",
 			"type":"double",
-			"optional":true
+			"default": 0.0
 			},
 			{
 			"name":"neighborhood",
 			"type":"string",
-			"optional":true
+			"default":""
 			}
 	
 	]

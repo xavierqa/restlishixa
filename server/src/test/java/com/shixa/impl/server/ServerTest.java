@@ -17,8 +17,8 @@ import com.linkedin.restli.server.resources.InjectResourceFactory;
 
 import com.shixa.formats.user.User;
 import com.shixa.impl.UserResources;
-import com.shixa.impl.db.DataBaseConnector;
-import com.shixa.impl.db.DataBaseConnectorImpl;
+import com.shixa.impl.db.UserDBConnector;
+import com.shixa.impl.db.UserDBConnectorImpl;
 
 
 
@@ -88,7 +88,7 @@ public class ServerTest {
 	 public void Initresource(){
 		 LOG.info("THis is a test");
 		 SimpleBeanProvider beanProvider = new SimpleBeanProvider();
-		 final DataBaseConnector _db = new DataBaseConnectorImpl();
+		 final UserDBConnector _db = new UserDBConnectorImpl();
 		 beanProvider.add("userDB", _db);
 		 final InjectResourceFactory factory = new InjectResourceFactory(beanProvider);
 		 final Map<String, ResourceModel> pathRootResourceMap = buildResourceModels(UserResources.class);

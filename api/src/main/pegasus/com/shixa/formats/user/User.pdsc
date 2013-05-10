@@ -3,7 +3,7 @@
   "name": "User",
   "namespace": "com.shixa.formats.user",
   "doc": "Create a user for shixa",
-  "include":[ "Profile", "Communication", "Location" ],
+  "include":[ "Profile", "Communication", "Location", "Subscriber" ],
   "fields": [
     {
       "name": "id",

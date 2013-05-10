@@ -1,0 +1,26 @@
+{
+  "type": "record",
+  "name": "Privacy",
+  "namespace": "com.shixa.formats.question",
+  "doc": "Privacy regarding a question",
+  "fields": [
+      		{
+      			"name": "Public",
+      			"type": "boolean",
+      			"default": true
+      			
+    		},
+    		{
+      			"name": "Private",
+      			"type": "boolean",
+      			"default": false
+    		},
+    		{
+      			"name": "PrivateGroup",
+      			"type":  { "type" : "array", "items" : "string" },
+      			"default":[""]
+    		}
+    		
+    		]
+    
+}

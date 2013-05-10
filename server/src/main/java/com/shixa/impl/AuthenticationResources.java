@@ -13,8 +13,8 @@ import com.linkedin.restli.server.resources.CollectionResourceTemplate;
 
 import com.shixa.formats.authentication.ShixaAuth;
 import com.shixa.formats.user.User;
-import com.shixa.impl.db.DataBaseConnector;
-import com.shixa.impl.db.DataBaseConnectorImpl;
+import com.shixa.impl.db.UserDBConnector;
+import com.shixa.impl.db.UserDBConnectorImpl;
 import com.shixa.impl.util.ShixaErrors;
 
 @RestLiCollection(name = "authentication", namespace = "com.shixa.formats")
@@ -25,11 +25,11 @@ public class AuthenticationResources extends CollectionResourceTemplate<String, 
 	
 	@Inject
     @Named("userDB")
-	private DataBaseConnector      _db;
+	private UserDBConnector      _db;
 	
 	public AuthenticationResources() {
 		// TODO Auto-generated constructor stub
-		_db = new DataBaseConnectorImpl();
+		_db = new UserDBConnectorImpl();
 	}
 	
 	@Override

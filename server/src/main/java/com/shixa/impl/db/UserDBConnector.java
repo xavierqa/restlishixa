@@ -5,7 +5,7 @@ import java.util.Map;
 
 import com.shixa.formats.user.User;
 
-public interface DataBaseConnector {
+public interface UserDBConnector {
 
 	// public Long getCurrentId();
 	 

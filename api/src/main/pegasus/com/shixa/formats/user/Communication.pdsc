@@ -7,26 +7,27 @@
 		{
 		"name":"use_email",
 		"type":"boolean",
-		"optional":true
+		"default":true
 		},
 		{
 		"name":"use_twitter",
 		"type": "boolean",
-		"optional":true
+		"default": false
 		},
 		{
 		"name":"contactme",
-		"type":"boolean"
+		"type":"boolean",
+		"default": false 
 		},
 		{
 		"name":"voice",
 		"type":"boolean",
-		"optional":true
+		"default":false
 		},
 		{
 		"name":"sms",
 		"type":"boolean",
-		"optional":true
+		"default":false
 		}
 		
 	]

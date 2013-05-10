@@ -7,17 +7,17 @@
 			{
 			"name":"photo_profile",
 			"type":"string",
-			"optional":true
+			"default":""
 			},
 			{
 			"name":"gender",
 			"type": "string",		
-			"optional":true
+			"default":""
 			},
 			{
 			"name":"twitter",
 			"type":"string",
-			"optional":true
+			"default":""
 			}
 			
 			

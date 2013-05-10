@@ -20,9 +20,9 @@ import com.shixa.impl.util.UUIDGenerator;
 import com.shixa.impl.util.UUIDGeneratorImpl;
 
 
-public class DataBaseConnectorImpl implements DataBaseConnector {
+public class UserDBConnectorImpl implements UserDBConnector {
 
-	private static Logger LOG = Logger.getLogger(DataBaseConnectorImpl.class);
+	private static Logger LOG = Logger.getLogger(UserDBConnectorImpl.class);
 	
 	private final AtomicLong _currId = new AtomicLong();
 	private final Map<Long, User> _data = new ConcurrentHashMap<Long, User>();
@@ -41,7 +41,7 @@ public class DataBaseConnectorImpl implements DataBaseConnector {
 	
 	private String _user_redis="shixa:user:";
 	
-	public DataBaseConnectorImpl(){
+	public UserDBConnectorImpl(){
 		_uuid = new UUIDGeneratorImpl();
 		_json = new JsonGeneratorImpl();
 		pool = new JedisPool(new JedisPoolConfig(),host);

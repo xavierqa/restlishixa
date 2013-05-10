@@ -1,0 +1,17 @@
+{
+	"type":"record",
+	"name":"Subscriber",
+	"namespace":"com.shixa.formats.user",
+	"doc":"create a profile for a user",
+	"fields":[
+			{
+			"name":"subscriber",
+			"type":{ "type" : "array", "items" : "string" },
+			"default":[""]
+			}
+			
+			
+			
+	]
+
+}

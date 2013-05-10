@@ -53,7 +53,7 @@ public class JedisTest {
 	@Test
 	public void createTest(){
 //		String id = "d5f1c2c1-7b60-3e04-9df6-25696bcd8a7f";
-		DataBaseConnector db = new DataBaseConnectorImpl();
+		UserDBConnector db = new UserDBConnectorImpl();
 		User user = _user.createUser();
 		String id = db.createUser(user);
 		LOG.info("ID:"+id);
@@ -66,7 +66,7 @@ public class JedisTest {
 
 	@Test
 	public void getTest(){
-		DataBaseConnector db = new DataBaseConnectorImpl();
+		UserDBConnector db = new UserDBConnectorImpl();
 		String id = "5f374b9a-3157-33cf-b49f-155ec6be5b37";
 		User userfromdb = db.getUser(id);
 		LOG.info(userfromdb.toString());
@@ -77,7 +77,7 @@ public class JedisTest {
 	
 	@Test
 	public void editTest(){
-		DataBaseConnector db = new DataBaseConnectorImpl();
+		UserDBConnector db = new UserDBConnectorImpl();
 		String id = "5f374b9a-3157-33cf-b49f-155ec6be5b37";
 		User _user = db.getUser(id);
 		_user.setCity("Cuenca");
@@ -88,7 +88,7 @@ public class JedisTest {
 	
 	@Test
 	public void existTest1(){
-		DataBaseConnector db = new DataBaseConnectorImpl();
+		UserDBConnector db = new UserDBConnectorImpl();
 		String id = "5f374b9a-3157-33cf-b49f-155ec6be5b37";
 		boolean exist = db.existUser(id);
 		LOG.info(exist);
@@ -97,7 +97,7 @@ public class JedisTest {
 	
 	@Test
 	public void removeTest(){
-		DataBaseConnector db = new DataBaseConnectorImpl();
+		UserDBConnector db = new UserDBConnectorImpl();
 		String id = "5f374b9a-3157-33cf-b49f-155ec6be5b37";
 		String _delete = db.removeUser(id);
 		LOG.info(_delete);
@@ -107,7 +107,7 @@ public class JedisTest {
 
 	@Test
 	public void existTest(){
-		DataBaseConnector db = new DataBaseConnectorImpl();
+		UserDBConnector db = new UserDBConnectorImpl();
 		String id = "5f374b9a-3157-33cf-b49f-155ec6be5b37";
 		boolean exist = db.existUser(id);
 		LOG.info(exist);

@@ -13,8 +13,8 @@ import com.linkedin.restli.server.UpdateResponse;
 import com.linkedin.restli.server.resources.CollectionResourceTemplate;
 import com.linkedin.restli.server.annotations.RestLiCollection;
 import com.shixa.formats.user.User;
-import com.shixa.impl.db.DataBaseConnector;
-import com.shixa.impl.db.DataBaseConnectorImpl;
+import com.shixa.impl.db.UserDBConnector;
+import com.shixa.impl.db.UserDBConnectorImpl;
 import com.shixa.impl.util.ShixaErrors;
 
 
@@ -26,14 +26,14 @@ public class UserResources extends CollectionResourceTemplate<String, User>{
 	
 	 @Inject
      @Named("userDB")
-	 private DataBaseConnector      _db;
+	 private UserDBConnector      _db;
 
 	public UserResources() {
 		// TODO Auto-generated constructor stub
-		_db = new DataBaseConnectorImpl();
+		_db = new UserDBConnectorImpl();
 	}
 	 
-	public DataBaseConnector getDataBase(){
+	public UserDBConnector getDataBase(){
 		return _db;
 	}
 	

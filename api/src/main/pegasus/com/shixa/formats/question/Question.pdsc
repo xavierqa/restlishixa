@@ -1,0 +1,28 @@
+{
+  "type": "record",
+  "name": "Question",
+  "include": ["Producer","Privacy"],
+  "namespace": "com.shixa.formats.question",
+  "doc": "Create a question representation",
+  "fields": [
+      		{
+      			"name": "Title",
+      			"type": "string"
+      			
+    		},
+    		{
+      			"name": "Body",
+      			"type": "string"
+    		},
+    		{
+      			"name": "Tags",
+      			"type": { "type" : "array", "items" : "string" },
+      			"default":[""]
+    		},
+    		{	"name":"id",
+    			"type":"string"
+    		}
+    		]
+    
+  
+}
