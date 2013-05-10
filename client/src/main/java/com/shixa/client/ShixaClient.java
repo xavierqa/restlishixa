@@ -14,11 +14,10 @@ import com.linkedin.restli.client.Response;
 import com.linkedin.restli.client.ResponseFuture;
 import com.linkedin.restli.client.RestClient;
 import com.linkedin.restli.common.EmptyRecord;
-import com.shixa.formats.*;
 
 public class ShixaClient {
 	
-	private static final UsersBuilders _userbuilders = new UsersBuilders();
+	/*private static final UsersBuilders _userbuilders = new UsersBuilders();
 	
 	public static void main(String[] args) throws RemoteInvocationException {
 		 // Create an HttpClient and wrap it in an abstraction layer
@@ -53,7 +52,7 @@ public class ShixaClient {
 	    http.shutdown(new FutureCallback<None>());
 	    
 	    
-	   /* final ResponseFuture<EmptyRecord> createFuture1 = (ResponseFuture<EmptyRecord>) _userbuilders.create().input(user).build();
+	    final ResponseFuture<EmptyRecord> createFuture1 = (ResponseFuture<EmptyRecord>) _userbuilders.create().input(user).build();
 	    try {
 			final Response<EmptyRecord> createResp1 = createFuture1.getResponse();
 			// HTTP header Location also shows the relative URI of the created resource
@@ -63,7 +62,7 @@ public class ShixaClient {
 		} catch (RemoteInvocationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}*/
+		}
 	}
-
+*/
 }
