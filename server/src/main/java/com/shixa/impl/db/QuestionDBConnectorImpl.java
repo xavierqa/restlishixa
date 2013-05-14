@@ -19,13 +19,7 @@ public class QuestionDBConnectorImpl implements QuestionDBConnector{
 
 	private static Logger LOG = Logger.getLogger(QuestionDBConnectorImpl.class);
 	
-	private String host = "localhost";
-	
-	private String port = "6379";
-	
-	private JedisPool pool; 
-	
-	private Jedis _jedis; 
+	private DBConnector _redis; 
 	
 	private JsonGenerator _json;
 	
@@ -36,8 +30,7 @@ public class QuestionDBConnectorImpl implements QuestionDBConnector{
 	public QuestionDBConnectorImpl() {
 		_uuid = new UUIDGeneratorImpl();
 		_json = new JsonGeneratorImpl();
-		pool = new JedisPool(new JedisPoolConfig(),host);
-		_jedis = pool.getResource();
+		_redis = RedisDBConnector.getDBConnector();
 	}
 	
 	private String getQuestionId(String id){

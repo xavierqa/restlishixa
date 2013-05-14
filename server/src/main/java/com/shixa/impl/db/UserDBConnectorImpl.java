@@ -24,16 +24,8 @@ public class UserDBConnectorImpl implements UserDBConnector {
 
 	private static Logger LOG = Logger.getLogger(UserDBConnectorImpl.class);
 	
-	//private final AtomicLong _currId = new AtomicLong();
-	//private final Map<Long, User> _data = new ConcurrentHashMap<Long, User>();
-
-	private String host = "localhost";
 	
-	private String port = "6379";
-	
-	private JedisPool pool; 
-	
-	private Jedis _jedis; 
+	private DBConnector _redis;
 	
 	private JsonGenerator _json;
 	
@@ -44,24 +36,9 @@ public class UserDBConnectorImpl implements UserDBConnector {
 	public UserDBConnectorImpl(){
 		_uuid = new UUIDGeneratorImpl();
 		_json = new JsonGeneratorImpl();
-		pool = new JedisPool(new JedisPoolConfig(),host);
-		_jedis = pool.getResource();
+		_redis = RedisDBConnector.getDBConnector();
 	}
 	
-	/*@Override
-	public Long getCurrentId() {
-		// TODO Auto-generated method stub
-		
-		return _currId.incrementAndGet();
-	}
-
-	@Override
-	public Map<Long, User> getData() {
-				// TODO Auto-generated method stub
-	
-		return _data;
-	}*/
-
 	/*
 	 * User code: 
 	 * -3 user exist 
@@ -85,7 +62,7 @@ public class UserDBConnectorImpl implements UserDBConnector {
 		LOG.info(user.toString());
 		String json = _json.serializeJson(user);
 		LOG.info(json);
-		_jedis.set(getUserId(id), json);
+		_redis.set(getUserId(id), json);
 		
 		return id;
 	}
@@ -104,7 +81,7 @@ public class UserDBConnectorImpl implements UserDBConnector {
 		}
 		
 		String json = _json.serializeJson(user);
-		_jedis.set(getUserId(Id), json);
+		_redis.set(getUserId(Id), json);
 		
 		return Id;
 	}
@@ -112,7 +89,7 @@ public class UserDBConnectorImpl implements UserDBConnector {
 	@Override
 	public String removeUser(String Id) {
 		// TODO Auto-generated method stub
-		long val = _jedis.del(getUserId(Id));
+		long val = _redis.delete(getUserId(Id));
 		String response; 
 		if ( val < 0 ){
 			response = ShixaErrors.errors.USER_HAS_NOT_BEEN_DELETE.getError();
@@ -124,7 +101,7 @@ public class UserDBConnectorImpl implements UserDBConnector {
 
 	@Override
 	public User getUser(String Id) {
-		String json = _jedis.get(getUserId(Id));
+		String json = _redis.get(getUserId(Id));
 		User user = _json.deserializeJson(json);
 		return user;
 	}
@@ -132,7 +109,7 @@ public class UserDBConnectorImpl implements UserDBConnector {
 	@Override
 	public Boolean existUser(String Id) {
 		// TODO Auto-generated method stub
-		return _jedis.exists(getUserId(Id));
+		return _redis.exist(getUserId(Id));
 	}
 
 	@Override
