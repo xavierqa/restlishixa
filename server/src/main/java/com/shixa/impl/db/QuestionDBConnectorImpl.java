@@ -9,6 +9,8 @@ import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
 import com.shixa.formats.question.Question;
+import com.shixa.impl.search.Index;
+import com.shixa.impl.search.RedisIndexImpl;
 import com.shixa.impl.util.JsonGenerator;
 import com.shixa.impl.util.JsonGeneratorImpl;
 import com.shixa.impl.util.UUIDGenerator;
@@ -25,12 +27,15 @@ public class QuestionDBConnectorImpl implements QuestionDBConnector{
 	
 	private UUIDGenerator _uuid; 
 	
+	private Index _index;
+	
 	private String _question_redis = "shixa:question:";
 	
 	public QuestionDBConnectorImpl() {
 		_uuid = new UUIDGeneratorImpl();
 		_json = new JsonGeneratorImpl();
 		_redis = RedisDBConnector.getDBConnector();
+		_index = new RedisIndexImpl();
 	}
 	
 	private String getQuestionId(String id){
@@ -42,6 +47,14 @@ public class QuestionDBConnectorImpl implements QuestionDBConnector{
 	public String createQuestion(Question question) {
 		
 		String questionID = _uuid.createQuestionUUID(question);
+		LOG.info("Question ID:"+questionID);
+		question.setQuestionId(questionID);
+		if(!_redis.exist(questionID)){
+			_index.index(question.getTitle(), question);
+		}else{
+			//add the user to the current list of questions
+		}
+		
 		
 		return null;
 	}

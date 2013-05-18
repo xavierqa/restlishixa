@@ -26,10 +26,13 @@ public class RedisDBConnector implements DBConnector{
 	
 	private static RedisDBConnector _redis = null;
 	
+	private int _count; 
+	
 	private RedisDBConnector(){
 		_redisconfig = new RedisConfiguration();
 		_pool = new JedisPool(new JedisPoolConfig(),_redisconfig.getHostname());
 		_jedis = _pool.getResource();
+		_count = 0;
 	}
 	
 	public static RedisDBConnector getDBConnector(){
@@ -85,8 +88,17 @@ public class RedisDBConnector implements DBConnector{
 
 	@Override
 	public long index(String key, long score, String val) {
-		 long ret = _jedis.zadd(key, score, val);
-		 LOG.info("indexing:"+ret + " "+score);
+		
+		
+		Double newscore = _jedis.zscore(key, val);
+		LOG.info("Score:"+score + " new score:" + newscore + " key:" + key + " val: "+ val);
+		if ( newscore == null){
+			newscore = (double) _count;
+			_count++;
+		}
+		
+		long ret = _jedis.zadd(key, newscore, val);
+		 LOG.info("indexing value:"+ret );
 		return ret;
 	}
 
@@ -100,10 +112,17 @@ public class RedisDBConnector implements DBConnector{
 			return null;
 		}
 		LOG.info("Start value:"+start);
-		long end = 50;
+		long end = start + 50;
 		Set<String> results = _jedis.zrange(key, start, end);
 		
 		return results;
+	}
+
+	@Override
+	public void remove(String key, String member) {
+		// TODO Auto-generated method stub
+		Long result = _jedis.zrem(key, member);
+		LOG.info("zremove "+result);
 	}
 
 	

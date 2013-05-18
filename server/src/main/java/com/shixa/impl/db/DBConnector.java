@@ -19,4 +19,6 @@ public interface DBConnector {
 	public long index(String key, long score, String val);
 	
 	public Set<String> search(String key, String member);
+	
+	public void remove(String key, String member);
 }

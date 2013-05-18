@@ -1,6 +1,7 @@
 package com.shixa.impl.search;
 
 import java.util.Set;
+import java.util.StringTokenizer;
 
 import org.apache.log4j.Logger;
 
@@ -12,7 +13,7 @@ public class RedisSearchImpl implements Search {
 	
 	private DBConnector _redis;
 	
-	private String key = "shixa:index:";
+	private StringBuffer key = new StringBuffer("shixa:index:");
 
 	private static Logger LOG = Logger.getLogger(RedisSearchImpl.class);
 	
@@ -24,7 +25,10 @@ public class RedisSearchImpl implements Search {
 	public Set<String> search(String query) {
 		// TODO Auto-generated method stub
 		LOG.info("redis" + _redis.toString());
-		Set<String> results = _redis.search(key, query);
+		StringTokenizer _query = new StringTokenizer(query);
+		key.append(_query.nextToken());
+		LOG.info(key.toString());
+		Set<String> results = _redis.search(key.toString(), query);
 		
 		return results;
 	} 

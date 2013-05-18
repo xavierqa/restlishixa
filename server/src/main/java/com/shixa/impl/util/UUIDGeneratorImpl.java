@@ -79,6 +79,13 @@ public class UUIDGeneratorImpl implements UUIDGenerator{
 		return questionID;
 	}
 
+	@Override
+	public Integer createTextID(String text) {
+		// TODO Auto-generated method stub
+		Integer textID = UUID.nameUUIDFromBytes(text.getBytes()).hashCode();
+		return textID;
+	}
+
 	
 		
 }

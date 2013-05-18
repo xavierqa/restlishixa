@@ -12,5 +12,5 @@ public interface UUIDGenerator {
 	
 	public String createQuestionUUID(Question question);
 	
-	
+	public Integer createTextID(String text);
 }
